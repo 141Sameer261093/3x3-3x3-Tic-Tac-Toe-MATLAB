@@ -104,10 +104,7 @@ if (start_playing == 1)
         win_sub = check_winner(sub_board);
 
                 if win_sub == 3
-                    main_board( place_current(1,1) + 1 , place_current(1,2) + 1 ) = 5;
-                    display(main_board);
-                end
-                
+                    
                 if win_sub == 1
 
                    message4 = fprintf('player %d won a sub-board\n', player);
