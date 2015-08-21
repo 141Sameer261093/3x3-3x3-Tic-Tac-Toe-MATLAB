@@ -69,7 +69,7 @@ if (start_playing == 1)
 
             while ( main_board( place_current(1,1) + 1 , place_current(1,2) + 1 ) ~= 0 )
 
-                    message5 = fprintf('as the sub-board indicated by previous mark is alredy won;\n player %d can freely choose freely sub-board to put next mark = ', player);
+                    message5 = fprintf('as the sub-board indicated by previous mark is alredy won;\n player %d can freely choose sub-board to put next mark = ', player);
                     place = take_input();
 
                     place_current(1,1) = floor((place-1)/3);
@@ -110,22 +110,24 @@ if (start_playing == 1)
                 
                 if win_sub == 1
 
-                   message4 = fprintf('player %d won a sub-board\n', player);
+                   message4 = fprintf('player %d won this sub-board\n', player);
+                   display(sub_board);
                    play_board( place_current(1,1)*3 +1 : place_current(1,1)*3 +3 , place_current(1,2)*3 +1 : place_current(1,2)*3 +3 ) = (player-1)*8 + 1;
 
                    main_board( place_current(1,1) + 1 , place_current(1,2) + 1 ) = (player-1)*8 + 1;
+                   display(main_board);
+                   
                    win_main = check_winner(main_board);
 
                        if win_main == 1
 
                            message6 = fprintf('Congratulations : player %d won the game', player);
+                           display(main_board);
                            game = 'over';
 
                        end
 
-                    display(main_board);
-
-                end
+                 end
 
                 count = count + 1;
                 place_current = place_new - 1;
